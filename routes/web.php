@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [LinkController::class, 'index']);
+
+Route::post('/', [LinkController::class, 'send']);
+//Route::get('/{key}', [LinkController::class, 'show'])->name('link.show');
